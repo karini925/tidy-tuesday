@@ -39,6 +39,10 @@ vol_dat = as.data.table(inner_join(volcano, eruptions))
 top_counts= as.data.table(table(vol_dat$country)) %>% arrange(desc(N))
 top_counts = top_counts[1:20,]
 colnames(top_counts)[1] = "Country"
+vol_dat = as.data.table(filter(vol_dat, country %in% top_counts$Country))
+summ = as.data.table(table(vol_dat$country, vol_dat$start_year)) %>%
+                    filter(N > 0, V2 > 1600)
+colnames(summ) = c("country", "")
 
 #[4] plot data
 
