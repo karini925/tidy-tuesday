@@ -51,7 +51,7 @@ ggplot(data=data_plot, aes(x=year, y=sum, color=species))+
   legend.position="right", 
   plot.title = element_text(hjust = 0.5))+
   facet_wrap(~lake, ncol=1, scales="free_y")+
-  labs(x = "Year", y="Grand total of observed",color="Species")+
+  labs(x = "Year", y="Production amounts (Pounds)",color="Fish Species")+
   scale_x_continuous(breaks=seq(1865,2020,25))+
   scale_color_manual(values=palette)+
   ggtitle("Distribution of most commonly observed fish from 1865-2015")+
@@ -65,4 +65,4 @@ ggplot(data=data_plot, aes(x=year, y=sum, color=species))+
 ggsave("tidytuesday_week24_fish.png", width=8, height=12 , device = "png")
 
 ## post tweet with media attachment
-post_tweet("a tweet with media attachment", media = "tidytuesday_week24_fish.png")
+post_tweet("First #TidyTuesday", media = "tidytuesday_week24_fish.png")
